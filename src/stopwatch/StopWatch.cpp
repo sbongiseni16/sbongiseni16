@@ -1,10 +1,19 @@
-#include "StopWatch.h"
+#include <iostream>
 #include <ctime>
-using namespace std;
+#include "StopWatch.h"
 
-// returns the amount of time in seconds that has passed since the process (i.e. your program) started executing
-double getProcessTime()
-{
-	clock_t time = clock();
-	return static_cast<double>(time)/CLOCKS_PER_SEC;
+stopwatch::stopwatch(){
+            setProcessTime();
+            std::cout << getProcessTime();
 }
+double stopwatch::getProcessTime(){
+            return processTime;
+}
+void stopwatch::setProcessTime(){
+            time_t start = time(nullptr);
+            time_t end = time(nullptr);
+            double elapsed_time = difftime(end, start);
+            processTime = elapsed_time;
+}
+
+
