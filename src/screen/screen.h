@@ -38,10 +38,11 @@ public:
 	// move the cursor to the specified row and column
 	void move(string::size_type row, string::size_type col);
 
-    // New overloaded move function to move in a specified direction
+	// New overloaded move function to move in a specified direction
     void move(Direction dir);
 	/*The move member function is not strictly necessary for clients of Screen, 
 	but it provides a convenient way to navigate the screen in a more intuitive and direction-based manner.*/
+
 
 	// get the character at the cursor's current position
 	char get() const { return _screen[cursor_]; }
@@ -64,12 +65,12 @@ public:
 	void display() const;
 	// check whether the specified co-ordinates lie within the screen
 	bool checkRange(string::size_type row, string::size_type col) const;
+	/*The 'const' keyword at the end of this function declaration means that the function will not modify the state of the object. 
+	It ensures that these functions can be safely called on const instances of the class.*/
+	// New function 
+    void drawSquare(string::size_type topLeftRow, string::size_type topLeftCol, string::size_type sideLength);
 
 private:
- // Private helper functions
-    bool isValidPosition(string::size_type row, string::size_type col) const;
-    void drawLine(string::size_type startRow, string::size_type endRow, string::size_type col, char ch);
-
 	// constants
 	// 0 represents the top-left screen element
 	const string::size_type TOP_LEFT = 0;
@@ -78,7 +79,10 @@ private:
 	string::size_type remainingSpace() const;
 	string::size_type row() const;
 
-	 
+	 // Private helper functions
+    bool isValidPosition(string::size_type row, string::size_type col) const;
+    void drawLine(string::size_type startRow, string::size_type endRow, string::size_type col, char ch);
+
 	// private data members
 	// (using a trailing underscore is a naming convention for private data - not a requirement)
 
@@ -90,8 +94,5 @@ private:
 	string::size_type cursor_ = TOP_LEFT;
 	// the Screen's data is stored as a string
 	string _screen;
-};
-
-
-#endif
+};#endif
 
