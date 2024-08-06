@@ -97,5 +97,7 @@ private:
 }
 /*You can use the existing interface to implement the drawSquare function by utilizing public methods like set to modify the screen's content. However, having direct access to the internal representation could simplify implementation and error checking.
 A function like drawSquare can be considered part of the responsibilities of a Screen object if the Screen class is meant to handle complex drawing operations. Otherwise, drawing might be better suited for a separate class or utility, depending on the design goals.*/
+/*A more intuitive internal representation could be a 2D array or vector of vectors of characters, which would align more closely with the screen's row and column structure. This would make operations like drawing shapes more straightforward.
+It's important to avoid changing the class’s interface to ensure existing code that uses the `Screen` class continues to function without modification. Changing the implementation is allowed because it improves the internal workings of the class without affecting how users interact with it.*/
 ;#endif
 
