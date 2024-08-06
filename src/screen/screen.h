@@ -40,6 +40,8 @@ public:
 
     // New overloaded move function to move in a specified direction
     void move(Direction dir);
+	/*The move member function is not strictly necessary for clients of Screen, 
+	but it provides a convenient way to navigate the screen in a more intuitive and direction-based manner.*/
 
 	// get the character at the cursor's current position
 	char get() const { return _screen[cursor_]; }
