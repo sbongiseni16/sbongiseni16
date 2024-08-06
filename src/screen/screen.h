@@ -64,10 +64,12 @@ public:
 	void display() const;
 	// check whether the specified co-ordinates lie within the screen
 	bool checkRange(string::size_type row, string::size_type col) const;
-	/*The 'const' keyword at the end of this function declaration means that the function will not modify the state of the object. 
-	It ensures that these functions can be safely called on const instances of the class.*/
-	
+
 private:
+ // Private helper functions
+    bool isValidPosition(string::size_type row, string::size_type col) const;
+    void drawLine(string::size_type startRow, string::size_type endRow, string::size_type col, char ch);
+
 	// constants
 	// 0 represents the top-left screen element
 	const string::size_type TOP_LEFT = 0;
@@ -89,5 +91,7 @@ private:
 	// the Screen's data is stored as a string
 	string _screen;
 };
+
+
 #endif
 

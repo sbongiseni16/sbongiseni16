@@ -1,3 +1,4 @@
+
 #include "screen.h"
 
 // Screen's constructor
@@ -30,26 +31,24 @@ void Screen::back()
 	return;
 }
 
-void Screen::up()
-{   // move cursor_ up one row of screen
-	// do not wrap around
-	if ( row() == 1 ) // at top?
-		cerr << "Screen::up - Cannot wrap around in a vertical direction" << endl;
-	else
-		cursor_ -= width_;
-
-	return;
+void Screen::up() {
+    // Move cursor_ up one row of the screen with wrap-around functionality
+    if (row() == 0) { // At the top row?
+        cursor_ += (height_ - 1) * width_; // Wrap around to the bottom row
+    } else {
+        cursor_ -= width_; // Move up one row
+    }
+    return;
 }
 
-void Screen::down()
-{   // move cursor_ down one row of screen
-	// do not wrap around
-	if ( row() == height_ ) // at bottom?
-		cerr << "Screen::down - Cannot wrap around in a vertical direction" << endl;
-	else
-		cursor_ += width_;
-
-	return;
+void Screen::down() {
+    // Move cursor_ down one row of the screen with wrap-around functionality
+    if (row() == height_ - 1) { // At the bottom row?
+        cursor_ -= (height_ - 1) * width_; // Wrap around to the top row
+    } else {
+        cursor_ += width_; // Move down one row
+    }
+    return;
 }
 
 void Screen::move( string::size_type row, string::size_type col )
@@ -176,3 +175,5 @@ string::size_type Screen::row() const
 	return (cursor_ + width_)/width_;
 }
 
+
+ 
