@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-	auto myScreen = Screen{6,6};
+	auto myScreen = Screen{6,6}; 
 	myScreen.forward();
 	myScreen.set('*');
 	myScreen.down();
