@@ -94,5 +94,8 @@ private:
 	string::size_type cursor_ = TOP_LEFT;
 	// the Screen's data is stored as a string
 	string _screen;
-};#endif
+}
+/*You can use the existing interface to implement the drawSquare function by utilizing public methods like set to modify the screen's content. However, having direct access to the internal representation could simplify implementation and error checking.
+A function like drawSquare can be considered part of the responsibilities of a Screen object if the Screen class is meant to handle complex drawing operations. Otherwise, drawing might be better suited for a separate class or utility, depending on the design goals.*/
+;#endif
 
